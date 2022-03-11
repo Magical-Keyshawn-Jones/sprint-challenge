@@ -1,4 +1,4 @@
-const Card = (article) => {
+
   // TASK 5
   // ---------------------
   // Implement this function, which should return the markup you see below.
@@ -17,6 +17,41 @@ const Card = (article) => {
   //   </div>
   // </div>
   //
+
+const Card = (article) => {
+  // Making DOM Variables
+  const cardHolder = document.createElement('div');
+  const headlineDiv = document.createElement('div');
+  const authorDiv =document.createElement('div');
+  const imgDiv = document.createElement('div');
+  const photo = document.createElement('img');
+  const spanStuff = document.createElement('span');
+
+  // Modding Variables
+  cardHolder.classList.add('card');
+
+  headlineDiv.classList.add('headline');
+  headlineDiv.textContent = article.headline;
+
+  authorDiv.classList.add('author');
+
+  imgDiv.classList.add('img-container');
+
+  photo.src = article.authorPhoto;
+
+  spanStuff. textContent = `By ${article.authorName}`;
+
+  // Giving Divs Kids
+  cardHolder.appendChild(headlineDiv);
+  cardHolder.appendChild(authorDiv);
+
+  authorDiv.appendChild(imgDiv);
+  authorDiv.appendChild(spanStuff);
+
+  imgDiv.appendChild(photo); 
+
+  // return component
+  return cardHolder;
 }
 
 const cardAppender = (selector) => {
