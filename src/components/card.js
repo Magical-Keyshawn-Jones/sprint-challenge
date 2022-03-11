@@ -18,6 +18,8 @@
   // </div>
   //
 
+import axios from "axios";
+
 const Card = (article) => {
   // Making DOM Variables
   const cardHolder = document.createElement('div');
@@ -54,8 +56,7 @@ const Card = (article) => {
   return cardHolder;
 }
 
-const cardAppender = (selector) => {
-  // TASK 6
+ // TASK 6
   // ---------------------
   // Implement this function that takes a css selector as its only argument.
   // It should obtain articles from this endpoint: `http://localhost:5001/api/articles` (test it with console.log!!).
@@ -63,6 +64,26 @@ const cardAppender = (selector) => {
   // Create a card from each and every article object in the response, using the Card component.
   // Append each card to the element in the DOM that matches the selector passed to the function.
   //
+
+const cardAppender = (selector) => {
+
+  let articleBag
+
+  axios.get('http://localhost:5001/api/articles')
+  .then(object => {
+    const dataBag = object.data.articles
+    const parent3 =document.querySelector(selector)
+
+    dataBag.bootstrap.forEach(item => parent3.appendChild(Card(item)))
+    dataBag.javascript.forEach(item => parent3.appendChild(Card(item)))
+    dataBag.jquery.forEach(item => parent3.appendChild(Card(item)))
+    dataBag.node.forEach(item => parent3.appendChild(Card(item)))
+    dataBag.technology.forEach(item => parent3.appendChild(Card(item)))
+    console.log(dataBag)
+  })
+  .catch(err => console.log('error!', err));
+  
+  
 }
 
 export { Card, cardAppender }
