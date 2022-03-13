@@ -67,7 +67,7 @@ const Card = (article) => {
 
 const cardAppender = (selector) => {
 
-  let articleBag
+ 
 
   axios.get('http://localhost:5001/api/articles')
   .then(object => {
