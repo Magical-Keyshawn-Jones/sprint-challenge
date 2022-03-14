@@ -56,7 +56,7 @@ const Card = (article) => {
   return cardHolder;
 }
 
- // TASK 6
+ // TASK 
   // ---------------------
   // Implement this function that takes a css selector as its only argument.
   // It should obtain articles from this endpoint: `http://localhost:5001/api/articles` (test it with console.log!!).
