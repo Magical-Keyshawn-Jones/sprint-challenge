@@ -43,7 +43,7 @@ const Card = (article) => {
 
   spanStuff. textContent = `By ${article.authorName}`;
 
-  // Giving Divs Kids
+  // Giving Divs Kidss
   cardHolder.appendChild(headlineDiv);
   cardHolder.appendChild(authorDiv);
 
